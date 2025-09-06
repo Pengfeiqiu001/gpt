@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>AI 助手（完整版）</title>
+  <style>
+    body{font-family:system-ui,Arial;margin:0;background:#f8fafc}
+    .wrap{max-width:860px;margin:32px auto;padding:16px}
+    .card{background:#fff;border:1px solid #e5e7eb;border-radius:14px;padding:16px;box-shadow:0 1px 2px rgba(0,0,0,.03)}
+    .row{display:flex;gap:8px;margin:8px 0;align-items:center}
+    input,button{padding:10px;border:1px solid #d1d5db;border-radius:10px;font-size:14px}
+    input{flex:1}
+    button{background:#111827;color:#fff;cursor:pointer}
+    button.secondary{background:#f3f4f6;color:#111827}
+    #chat{height:460px;overflow:auto;white-space:pre-wrap;background:#fbfbfb;border:1px dashed #d1d5db;border-radius:10px;padding:10px}
+    .msg{margin:6px 0}
+    .user{color:#111827}
+    .ai{color:#065f46}
+    .sys{color:#6b7280;font-size:12px}
+    .ok{color:#16a34a}.err{color:#dc2626}
+    label{font-size:12px;color:#6b7280}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <h2>AI 助手（完整版）</h2>
+      <div class="row">
+        <input id="api" placeholder="后端地址，如 https://chat-uzfs.vercel.app" />
+        <button id="save">保存</button>
+        <button id="clearHist" class="secondary">清空对话</button>
+      </div>
+      <div class="row">
+        <label for="token">App Token（可选）</label>
+        <input id="token" placeholder="后端若启用 APP_TOKEN，这里填同一串值"/>
+      </div>
+      <div id="status" class="sys">状态：未连接</div>
+      <div id="chat"></div>
+      <div class="row">
+        <input id="q" placeholder="输入你的问题…" />
+        <button id="send">发送</button>
+        <button id="sendSSE" class="secondary">尝试流式</button>
+      </div>
+      <div class="sys">提示：若流式失败会自动降级为非流式。</div>
+    </div>
+  </div>
+
+<script src="./main.js"></script>
+</body>
+</html>
